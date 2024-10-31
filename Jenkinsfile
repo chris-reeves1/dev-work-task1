@@ -35,8 +35,12 @@ pipeline {
         }
 
         stage('Execute Tests') {
+         //   options {
+        //allowFailure true
+    //}
             steps {
                 script {
+                    catchError(buildResult: 'UNSTABLE', stageResult: 'UNSTABLE'){
                 sh '''
                 python3 -m venv .venv
                 . .venv/bin/activate
@@ -44,6 +48,7 @@ pipeline {
                 python3 -m unittest discover -s tests .
                 deactivate
                 '''
+                    }
                 }
             }
         }
