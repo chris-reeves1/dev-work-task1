@@ -37,10 +37,12 @@ pipeline {
         stage('Execute Tests') {
          //   options {
         //allowFailure true
+           // timeout(time: 30, unit: 'MINUTES')
+            //disableConcurrentBuilds()
     //}
             steps {
                 script {
-                    catchError(buildResult: 'UNSTABLE', stageResult: 'UNSTABLE'){
+                    catchError(buildResult: 'UNSTABLE', stageResult: 'UNSTABLE'/*failure/success/aborted*/){
                 sh '''
                 python3 -m venv .venv
                 . .venv/bin/activate
