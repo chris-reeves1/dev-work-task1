@@ -54,8 +54,6 @@ pipeline {
         }
     }
     post {
-        // Archive files after the pipeline finishes
-        // Optionally, you can send a notification or take additional actions here
         success {
             echo 'Pipeline completed successfully!'
         }
