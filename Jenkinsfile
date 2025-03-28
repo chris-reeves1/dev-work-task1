@@ -27,7 +27,7 @@ pipeline {
             }
         }
 
-        stage('Approval to Apply Terraform') {
+        stage('Approval to continue') {
             steps {
                 input message: 'Do you want to proceed?', ok: 'Yes'
             }
