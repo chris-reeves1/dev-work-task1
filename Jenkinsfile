@@ -27,6 +27,12 @@ pipeline {
             }
         }
 
+        stage('Approval to Apply Terraform') {
+            steps {
+                input message: 'Do you want to proceed?', ok: 'Yes'
+            }
+        }
+
          stage('Deploy') {
             steps {
                 sh 'docker run -d --name flask-app --network new-network flask-app:latest'
