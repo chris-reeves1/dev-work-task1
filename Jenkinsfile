@@ -49,7 +49,8 @@ pipeline {
             steps {
                 script {
                     catchError(buildResult: 'UNSTABLE', stageResult: 'UNSTABLE'/*failure/success/aborted*/){
-                sh '''
+                // sudo apt install pythjon3-venv on ec2 first!!!!
+                        sh '''
                 python3 -m venv .venv
                 . .venv/bin/activate
                 pip install -r requirements.txt
